@@ -1,11 +1,10 @@
 provider "kubernetes" {
-  client_certificate     = "${file("/home/billy/.minikube/profiles/minikube/client.crt")}"
-  client_key             = "${file("/home/billy/.minikube/profiles/minikube/client.key")}"
+  config_path    = "~/.kube/config"
+  config_context = "minikube"
 }
 
-
-resource "kubernetes_namespace" "example_namespace" {
+resource "kubernetes_namespace" "example" {
   metadata {
-    name = "example-namespace"
+    name = "my-first-namespace"
   }
 }
